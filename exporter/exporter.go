@@ -15,11 +15,11 @@ package exporter
 
 import (
 	"context"
+	"fmt"
 	"strconv"
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 
 	"github.com/coord-e/linux_dvb_exporter/linux_dvb/frontend"
@@ -147,7 +147,7 @@ func (e *Exporter) collectFromFrontend(ch chan<- prometheus.Metric, adapter uint
 
 	status, err := fe.ReadStatus()
 	if err != nil {
-		return errors.Wrap(err, "failed to read status")
+		return fmt.Errorf("failed to read status: %w", err)
 	}
 
 	adapterStr := strconv.Itoa(int(adapter))
@@ -163,7 +163,7 @@ func (e *Exporter) collectFromFrontend(ch chan<- prometheus.Metric, adapter uint
 
 	stats, err := fe.GetStats()
 	if err != nil {
-		return errors.Wrap(err, "failed to get stats")
+		return fmt.Errorf("failed to get stats: %w", err)
 	}
 
 	if stats.SignalStrength.Decibel != nil {
