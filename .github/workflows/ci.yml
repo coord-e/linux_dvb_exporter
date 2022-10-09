@@ -16,6 +16,7 @@ jobs:
         include:
           - arch: amd64
             os: linux
+            # supports Ubuntu 14.04, Debian 8, etc.
             cc: zig cc -target x86_64-linux-gnu.2.17
           - arch: arm
             os: linux
@@ -23,6 +24,7 @@ jobs:
             cc: zig cc -target arm-linux-musleabihf
           - arch: arm64
             os: linux
+            # supports Ubuntu 14.04, Debian 8, etc.
             cc: zig cc -target aarch64-linux-gnu.2.17
     env:
       GOOS: '${{ matrix.os }}'
@@ -33,7 +35,7 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version-file: 'go.mod'
-      - run: sudo snap install zig --classic --beta
+      - run: sudo snap install zig --classic --beta # assuming `zig cc` interface is stable
       - run: make build RELEASE=1
       - uses: actions/upload-artifact@v3
         with:
