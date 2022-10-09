@@ -6,9 +6,10 @@ build: $(BIN)
 GO_FILES := $(shell find . -type f -name '*.go' -print)
 
 ifdef RELEASE
-	GO_LDFLAGS += -w -s -extldflags '-static'
-	GO_FLAGS += -a -installsuffix netgo
-	GO_BUILD_TAGS := netgo
+	# XXX: In principle, the build does not require a call to the C compiler or a link to libc, since Cgo is only used to extract structures and constants.
+	#      But Cgo is not designed to work without them, so linux_dvb_exporter gives up static linking.
+	GO_LDFLAGS += -w -s
+	GO_FLAGS += -a
 endif
 
 VERSION := $(shell cat VERSION)
