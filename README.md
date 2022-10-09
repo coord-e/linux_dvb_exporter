@@ -1,10 +1,10 @@
 # Linux DVB Exporter
 
 [![CI](https://github.com/coord-e/linux_dvb_exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/coord-e/linux_dvb_exporter/actions/workflows/ci.yml)
-[![Release](https://github.com/coord-e/linux_dvb_exporter/actions/workflows/release.yml/badge.svg)](https://github.com/coord-e/linux_dvb_exporter/actions/workflows/release.yml)
 
 Prometheus exporter for DVB device metrics. Currently [frontend statistics](https://www.kernel.org/doc/html/v5.10/userspace-api/media/dvb/frontend-stat-properties.html#frontend-stat-properties) and [status](https://www.kernel.org/doc/html/v5.10/userspace-api/media/dvb/fe-read-status.html) are exported.
 Pre-built binaries are available at [the releases](https://github.com/coord-e/linux_dvb_exporter/releases).
+Container images are available at [the packages](https://github.com/coord-e?tab=packages&repo_name=linux_dvb_exporter).
 
 ## Usage
 
