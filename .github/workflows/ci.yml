@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       BIN_DIR: ./dist
-      IMAGE_REPOSITORY: ghcr.io/coord-e/linux_dvb-exporter
+      IMAGE_REPOSITORY: ghcr.io/coord-e/linux-dvb-exporter
     permissions:
       contents: read
       packages: write
