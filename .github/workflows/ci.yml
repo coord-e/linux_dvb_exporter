@@ -68,16 +68,16 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: linux_dvb_exporter-${{ matrix.os }}-${{ matrix.arch }}
-      - run: |
+      - env:
+          GOOS: '${{ matrix.os }}'
+          GOARCH: '${{ matrix.arch }}'
+        run: |
           name=linux_dvb_exporter-$(cat VERSION).$GOOS-$GOARCH
           mkdir "$name"
           mv README.md "${name}/"
-          mv LICENSE "${name}/"
+          chmod +x linux_dvb_exporter
           mv linux_dvb_exporter "${name}/"
           tar cf "$name.tar.gz" "$name"
-        env:
-          GOOS: '${{ matrix.os }}'
-          GOARCH: '${{ matrix.arch }}'
       - uses: softprops/action-gh-release@v1
         with:
           files: linux_dvb_exporter-*.tar.gz
