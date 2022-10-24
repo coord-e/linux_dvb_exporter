@@ -14,9 +14,13 @@ usage: linux_dvb_exporter [<flags>]
 
 Flags:
   -h, --help                Show context-sensitive help (also try --help-long and --help-man).
-      --web.config.file=""  [EXPERIMENTAL] Path to configuration file that can enable TLS or authentication.
-      --web.listen-address=":9111"
-                            The address to listen on for HTTP requests.
+      --web.systemd-socket  Use systemd socket activation listeners instead of port listeners (Linux
+                            only).
+      --web.listen-address=:9111 ...
+                            Addresses on which to expose metrics and web interface. Repeatable for
+                            multiple addresses.
+      --web.config.file=""  [EXPERIMENTAL] Path to configuration file that can enable TLS or
+                            authentication.
       --web.telemetry-path="/metrics"
                             Path under which to expose metrics.
       --log.level=info      Only log messages with the given severity or above. One of: [debug, info, warn, error]
