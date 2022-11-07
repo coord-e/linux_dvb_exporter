@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/go-kit/log v0.2.1
 	github.com/paypal/gatt v0.0.0-20151011220935-4ae819d591cf
-	github.com/prometheus/client_golang v1.13.0
+	github.com/prometheus/client_golang v1.13.1
 	github.com/prometheus/common v0.37.0
 	github.com/prometheus/exporter-toolkit v0.8.1
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
