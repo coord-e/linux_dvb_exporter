@@ -8,7 +8,7 @@ Container images are available at [the packages](https://github.com/coord-e?tab=
 
 ## Usage
 
-```shell
+```console
 $ ./linux_dvb_exporter -h
 usage: linux_dvb_exporter [<flags>]
 
@@ -30,6 +30,6 @@ Flags:
 
 ## Build
 
-```shell
+```console
 $ make build
 ```
